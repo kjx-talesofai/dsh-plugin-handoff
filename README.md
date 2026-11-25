@@ -36,7 +36,10 @@ Hand the session you are in to another agent client: export it as **one structur
 ## Install
 
 ```bash
-# from a checkout
+# from GitHub (tagged release)
+dsh plugin --profile <profile> add github:kjx-talesofai/dsh-plugin-handoff#v0.1.0
+
+# or from a local checkout
 dsh plugin --profile <profile> add link:/path/to/dsh-plugin-handoff
 ```
 

@@ -5,8 +5,8 @@
 # one "handoff to" control in the Session header's utilities row (the same row the
 # shipped "..." menu lives in).
 #
-# The host half mounts three same-origin routes (`/api/handoff.{pick,export,clear}`)
+# The host half mounts six same-origin routes (`/api/handoff.{pick,export,clear,template,template.save,template.reset}`)
 # and reuses ../../lib/export.mjs — the CLI and the plugin share one renderer.
 - insert:
     - id: handoff
-      name: '@local/dsh-handoff'
+      name: 'dsh-plugin-handoff'

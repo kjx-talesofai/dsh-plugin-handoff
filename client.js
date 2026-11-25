@@ -13,11 +13,11 @@
  * and no host dialog primitive, so it keeps working if `dsh-client-ui-primitives`
  * changes shape.
  *
- * @module @local/dsh-handoff/client
+ * @module dsh-plugin-handoff/client
  */
 
 window.__ModuleLoader__.load({
-  id: '@local/dsh-handoff',
+  id: 'dsh-plugin-handoff',
   factory(require) {
     const React = require('react')
 
