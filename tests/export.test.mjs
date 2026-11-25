@@ -4,7 +4,7 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { after, before, describe, it } from 'node:test'
-import { zstdCompressSync } from 'node:zlib'
+import * as zlib from 'node:zlib'
 
 import { exportSession, lintTemplate, renderPrompt } from '../lib/export.mjs'
 
@@ -75,7 +75,7 @@ describe('exportSession', () => {
       { type: 'turn/end', seq: 4, time: t0 + 3, data: { turn: 1, reason: { kind: 'completed' } } },
     ]
     const jsonl = events.map((e) => JSON.stringify(e)).join('\n') + '\n'
-    writeFileSync(join(dir, 'session.v4.jsonl.zstd'), zstdCompressSync(Buffer.from(jsonl)))
+    writeFileSync(join(dir, 'session.v4.jsonl.zstd'), zlib.zstdCompressSync(Buffer.from(jsonl)))
     previousHome = process.env.HOME
     process.env.HOME = home
   })
