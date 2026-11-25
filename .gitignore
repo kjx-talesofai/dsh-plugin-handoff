@@ -1,0 +1,7 @@
+node_modules/
+*.tgz
+.DS_Store
+
+# Local exports and scratch data never belong to the package.
+.dsh-handoff/
+probe/tmp/

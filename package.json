@@ -1,0 +1,73 @@
+{
+  "name": "dsh-plugin-handoff",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Export the open DeepSeek Harness session as one structured Markdown file and copy a paste-ready prompt for another agent client.",
+  "license": "MIT",
+  "author": "Jiaxin Kou <https://hypersampling.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kjx-talesofai/dsh-plugin-handoff.git"
+  },
+  "homepage": "https://github.com/kjx-talesofai/dsh-plugin-handoff",
+  "bugs": "https://github.com/kjx-talesofai/dsh-plugin-handoff/issues",
+  "icon": "./assets/icon.svg",
+  "main": "index.js",
+  "bin": {
+    "dsh-handoff": "./bin/dsh-handoff.mjs"
+  },
+  "exports": {
+    ".": {
+      "default": "./index.js"
+    },
+    "./client": {
+      "default": "./client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "lib/export.mjs",
+    "bin/dsh-handoff.mjs",
+    "assets/icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.0-rc.1 <0.3.0-0"
+  },
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "handoff",
+    "session",
+    "export",
+    "markdown",
+    "agent",
+    "context"
+  ],
+  "scripts": {
+    "test": "node --test tests/export.test.mjs"
+  }
+}

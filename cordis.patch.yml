@@ -1,0 +1,12 @@
+# dsh-handoff — bundle layer.
+#
+# One row mounts the package. The same package also declares `dsh.client`, so the
+# harness serves its browser half into window.__DSH_BOOT__ and the row contributes
+# one "handoff to" control in the Session header's utilities row (the same row the
+# shipped "..." menu lives in).
+#
+# The host half mounts three same-origin routes (`/api/handoff.{pick,export,clear}`)
+# and reuses ../../lib/export.mjs — the CLI and the plugin share one renderer.
+- insert:
+    - id: handoff
+      name: '@local/dsh-handoff'
